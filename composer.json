@@ -1,0 +1,22 @@
+{
+	"name": "limanmys/ping",
+	"description": "Ping",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Mete ARSLAN",
+			"email": "mete.arslan8@hotmail.com"
+		}
+	],
+	"autoload": {
+		"files": [
+			"app/Helpers/Helpers.php"
+		],
+		"psr-4": {
+			"App\\": "app"
+		},
+		"classmap": [
+			"app"
+		]
+	}
+}
