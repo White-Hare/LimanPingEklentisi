@@ -86,7 +86,6 @@
     }
 
 
-
     function getSavedIps() {
         showSwal('{{ __('Yükleniyor...') }}', 'info');
         let data = new FormData();
@@ -240,9 +239,8 @@
         request("{{ API('get_saved_ips_table') }}", data, function(response) {
                 $("#serverStatusTable").html(response).find('table').DataTable({
                     dom: 'Bfrtip',
-                    buttons: [
-                        {
-                            text: "{{__("Kopyala")}}",
+                    buttons: [{
+                            text: "{{ __('Kopyala') }}",
                             extend: 'copy',
                             exportOptions: {
                                 columns: [1, 2, 3],
@@ -287,8 +285,30 @@
     }
 
 
+    var intervalId = -1;
+    function setIntervalForPing() {
+        let interval = $("#timeInterval option:selected").val();
 
+        if (interval > 0)
+            intervalId= setInterval(() => {
+                pingAll();
+                pingForTable();
+            }, interval);
+    }
+
+    setIntervalForPing();
     getSavedIps();
+
+
+
+    $('#timeInterval').on('change', () => {
+        if(intervalId > 0)
+            clearInterval(intervalId);
+        setIntervalForPing();
+    });
+
+
+
 
     $("#addIpIp").on('input', function() {
         let $name = $("#addIpName");
