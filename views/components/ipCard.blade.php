@@ -25,5 +25,5 @@
                                         <input type="button" class="btn btn-primary" value="Ping" onclick="ping('{{ $ip }}')">
                                     </div>-->
          </div>
-     </div>
+     </div> 
  </div>
