@@ -11,7 +11,7 @@ class PingController
 		$ip = request("ip");
 
 
-		$result = Command::runSudo("ping -c 2 -W 2 {:ip}", ["ip" => $ip]);
+		$result = Command::run("ping -c 2 -W 2 {:ip}", ["ip" => $ip]);
 
 		if ($result != "") {
 			preg_match("/(\d{1,3})% packet loss/m", $result, $matches);
