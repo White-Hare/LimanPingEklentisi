@@ -18,5 +18,8 @@
 		"classmap": [
 			"app"
 		]
+	},
+	"require": {
+		"illuminate/view": "^8.74"
 	}
 }

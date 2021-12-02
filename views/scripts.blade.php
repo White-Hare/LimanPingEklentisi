@@ -94,37 +94,7 @@
 
             let finalHtml = "";
             for (const ip of response) {
-                let name = ip.name ? ip.name : ip.ip;
-
-                finalHtml +=
-                    /*html*/
-                    `
-                        <div id="ipNamePair-${ip.id}" class="p-3 col-lg-3 col-md-4">
-                            <div class="card card-body d-flex flex-column ipNamePair">
-                                <input type="hidden" id="id" value="${ip.id}"/>
-                                <div id="nameDiv" class="row my-1">
-                                    <div class="col-2 align-self-center align-items-center"><label for="name">Isim</label></div>
-                                    <div class="col-10"><input id="name" class="form-control listValueKeyPairInput" type="text" value="${name}"/></div>
-                                </div>
-                                <div id="ipDiv" class="row my-1">
-                                    <div class="col-2 align-self-center align-items-center"><label for="ip">Ip</label></div>
-                                    <div class="col-10"><input id="ip" class="form-control listValueKeyPairInput" type="text" value="${ip.ip}"/></div>
-                                </div>
-                                <div id="iconDiv" class="row my-1 align-self-center"><span class="fas fa-times text-danger" style="font-size:2em"></span></div>
-                                <div class="row my-1 align-self-center align-items-center">
-                                    <div class="col">
-                                        <input type="button" class="btn btn-success" value="Güncelle" onclick="updateIp('${ip.id}')">
-                                    </div>
-                                    <div class="col">
-                                        <input type="button" class="btn btn-danger" value="Sil" onclick="deleteIp('${ip.id}')">
-                                    </div>
-                                    <!--<div class="col">
-                                        <input type="button" class="btn btn-primary" value="Ping" onclick="ping('${ip.ip}')">
-                                    </div>-->
-                                </div>
-                            </div>
-                        </div>
-                    `;
+                finalHtml += ip;
             }
 
             $("#ips").html(finalHtml);

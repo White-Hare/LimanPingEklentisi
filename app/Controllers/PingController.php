@@ -88,7 +88,16 @@ class PingController
 		if ($contents == "")
 			$contents = "[]";
 
-		return respond(json_decode($contents), 200);
+		$contents = json_decode($contents);
+
+		$views = [];
+
+		foreach($contents as $ip)
+		{
+			array_push($views, view('components.ipCard', ['id' => $ip->id, 'ip' => $ip->ip, 'name' => $ip->name]));
+		}
+
+		return respond($views, 200);
 	}
 
 
