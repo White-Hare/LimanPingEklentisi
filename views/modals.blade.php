@@ -1,3 +1,7 @@
+<style>
+    .modal {overflow-y:auto;}
+</style>
+
 @component('modal-component', [
     'id' => 'serverStatusModal',
     'title' => __('Duzenle'),

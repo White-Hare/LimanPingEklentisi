@@ -100,7 +100,7 @@
             finalHtml +=
                 /*html*/
                 `
-                <div id="ipNamePair-{{ $id }}" class="p-3 col-lg-3 col-md-4" style="min-height: 242.1px">
+                <div class="p-3 col-lg-3 col-md-4" style="height: 242.1px">
                     <div class="card card-body d-flex justify-content-center align-items-center align-self-center h-100">
                         <button onclick="$('#addIpModal').modal('show')" class="btn btn-primary">
                             <span class="fas fa-plus" style="font-size:1rem"></span>
@@ -305,5 +305,9 @@
 
     $("#addIpModal").on("hidden.bs.modal", () => {
         $('#ipAddStatus').html('');
+    });
+
+    $("#serverStatusModal").on("hidden.bs.modal", () => {
+        createServerStatusTable();
     });
 </script>
