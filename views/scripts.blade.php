@@ -97,10 +97,24 @@
                 finalHtml += ip;
             }
 
+            finalHtml +=
+                /*html*/
+                `
+                <div id="ipNamePair-{{ $id }}" class="p-3 col-lg-3 col-md-4" style="min-height: 242.1px">
+                    <div class="card card-body d-flex justify-content-center align-items-center align-self-center h-100">
+                        <button onclick="$('#addIpModal').modal('show')" class="btn btn-primary">
+                            <span class="fas fa-plus" style="font-size:1rem"></span>
+                        </button>
+                    </div>
+                </div>
+                `;
+
             $("#ips").html(finalHtml);
 
 
             pingAll();
+            $("#serverStatusModal").modal('show');
+
             Swal.close();
 
 
@@ -244,8 +258,6 @@
                 $("#serverStatusTable").find(".dt-buttons a").addClass("btn btn-primary ml-2");
 
                 pingForTable();
-
-                $("#serverStatusModal").modal('show');
             },
             function(response) {
                 response = JSON.parse(response);
@@ -256,23 +268,25 @@
 
 
     var intervalId = -1;
+
     function setIntervalForPing() {
         let interval = $("#timeInterval option:selected").val();
 
         if (interval > 0)
-            intervalId= setInterval(() => {
+            intervalId = setInterval(() => {
                 pingAll();
                 pingForTable();
             }, interval);
     }
 
     setIntervalForPing();
-    getSavedIps();
+    createServerStatusTable();
+
 
 
 
     $('#timeInterval').on('change', () => {
-        if(intervalId > 0)
+        if (intervalId > 0)
             clearInterval(intervalId);
         setIntervalForPing();
     });

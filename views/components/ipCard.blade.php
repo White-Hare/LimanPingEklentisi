@@ -15,11 +15,11 @@
                  style="font-size:2em"></span></div>
          <div class="row my-1 align-self-center align-items-center">
              <div class="col">
-                 <input type="button" class="btn btn-success" value="Güncelle"
+                 <input type="button" class="btn btn-success" value="{{__("Güncelle")}}"
                      onclick="updateIp('{{ $id }}')">
              </div>
              <div class="col">
-                 <input type="button" class="btn btn-danger" value="Sil" onclick="deleteIp('{{ $id }}')">
+                 <input type="button" class="btn btn-danger" value="{{__("Sil")}}" onclick="deleteIp('{{ $id }}')">
              </div>
              <!--<div class="col">
                                         <input type="button" class="btn btn-primary" value="Ping" onclick="ping('{{ $ip }}')">

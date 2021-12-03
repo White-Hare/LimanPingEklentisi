@@ -1,41 +1,44 @@
 @component('modal-component', [
-    'id' => 'addIpModal',
-    'title' => __('IP Ekle'),
-    "notSized" => true,
+    'id' => 'serverStatusModal',
+    'title' => __('Duzenle'),
     'footer' => [
-        'text' => __('IP Ekle'),
-        'class' => 'btn-primary',
-        'onclick' => "addIp()",
+    'text' => __('Kapat'),
+    'class' => 'btn-primary',
+    'onclick' => "$('#serverStatusModal').modal('hide')",
     ],
     ])
 
-    <input type="text" id="addIpName" class="form-control" placeholder="Liman120">
-    <small>{{ __("Eklemek istediğiniz IP adresine bir ad yazınız. Örnek format: Liman120") }}</small>
 
-    <div class="mb-3"></div>
 
-    <input type="text" id="addIpIp" class="form-control" placeholder="10.0.0.100">
-    <small>{{ __("Eklemek istediğiniz IP adresini giriniz. Örnek format: 192.168.20.40") }}</small>
-    
-    <div class="mb-3"></div>
+    <div id="ips" class="card container-fluid card-deck my-3" style="min-height: 50vh">
 
-    <div id="ipAddStatus"></div>
+    </div>
+
+
+
 @endcomponent
 
 
 @component('modal-component', [
-    'id' => 'serverStatusModal',
-    'title' => __('Server Durumları'),
+    'id' => 'addIpModal',
+    'title' => __('IP Ekle'),
+    'notSized' => true,
     'footer' => [
-        'text' => __('Kapat'),
-        'class' => 'btn-primary',
-        'onclick' => "$('#serverStatusModal').modal('hide')",
+    'text' => __('IP Ekle'),
+    'class' => 'btn-primary',
+    'onclick' => 'addIp()',
     ],
     ])
 
-<div id="serverStatusTable">
-    
-</div>
+    <input type="text" id="addIpName" class="form-control" placeholder="Liman120">
+    <small>{{ __('Eklemek istediğiniz IP adresine bir ad yazınız. Örnek format: Liman120') }}</small>
 
+    <div class="mb-3"></div>
 
+    <input type="text" id="addIpIp" class="form-control" placeholder="10.0.0.100">
+    <small>{{ __('Eklemek istediğiniz IP adresini giriniz. Örnek format: 192.168.20.40') }}</small>
+
+    <div class="mb-3"></div>
+
+    <div id="ipAddStatus"></div>
 @endcomponent
