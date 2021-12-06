@@ -1,4 +1,4 @@
- <div id="ipNamePair-{{ $id }}" class="p-3 col-lg-3 col-md-4">
+ <div id="ipNamePair-{{ $id }}" class="p-3 col-lg-3">
      <div class="card card-body d-flex flex-column ipNamePair">
          <input type="hidden" id="id" value="{{ $id }}" />
          <div id="nameDiv" class="row my-1">
